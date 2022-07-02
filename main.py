@@ -11,7 +11,7 @@ def parse_args():
     parser.add_argument('p1', type=int, nargs=1)
     parser.add_argument('p2', type=int, nargs=1)
     args = parser.parse_args()
-    return (args.host, args.p1, args.p2)
+    return args.host, args.p1, args.p2
 
 
 def tcp_scan(ip, ports):

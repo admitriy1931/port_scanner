@@ -1,3 +1,3 @@
 # Port_Scanner
-TCP - сканер на основе scrapy
-python main.py [host] [x-y]
+Описание: TCP - сканер на основе scrapy
+Парамеры запуска: python main.py [host] [x y], 2-м параметром задается диапазон от x до y

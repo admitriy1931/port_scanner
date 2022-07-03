@@ -1,7 +1,9 @@
 import argparse
 from scapy.all import *
 from scapy.layers.inet import IP, TCP
+
 result = []
+
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -19,15 +21,15 @@ def tcp_scan(ip, port):
     except socket.gaierror:
         raise ValueError()
 
-    answer, unanswer = sr(package, timeout=2, retry=1)
+    answer, unanswer = sr(package, timeout=2)
     if not answer:
-        result +=[f'port {port} on host {ip} is offline']
+        result += [f'port {port} on {ip} is offline']
     else:
         for sent, received in answer:
             if received[TCP].flags == "SA":
-                result +=[f'port {port} on {ip} is open']
+                result += [f'port {port} on {ip} is open']
             else:
-                result +=[f'port {port} on {ip} is closed']
+                result += [f'port {port} on {ip} is closed']
 
 
 if __name__ == '__main__':
